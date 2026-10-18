@@ -1,0 +1,8 @@
+# Versions marked (T) were present together in the build sandbox and exercised by the test suite.
+# Others are bounded ranges that were NOT installed/tested there (no network) - see README.
+numpy==2.4.4                      # (T)
+Pillow==12.1.1                    # (T)
+requests==2.33.1                  # (T)
+onnxruntime==1.24.4               # (T) CPU build
+opencv-python-headless>=4.13,<4.14  # 4.13.0 (T); headless = no libGL needed in Docker
+onnx>=1.17,<2                     # NOT tested here; only used to read the swap model's emap

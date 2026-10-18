@@ -1,0 +1,32 @@
+# Render Blueprint. NOTE: the Free plan (512 MB RAM, 0.1 CPU) cannot hold these models
+# (~740 MB of weights) - use "standard" (2 GB / 1 CPU) or larger. See README.
+services:
+  - type: web
+    name: face-swap-telegram-bot
+    runtime: docker
+    plan: standard
+    healthCheckPath: /healthz
+    autoDeploy: false
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_TELEGRAM_ID
+        sync: false
+      - key: WEBHOOK_SECRET   # set manually: letters/digits/_/- only (generateValue can emit '+', '/', '=')
+        sync: false
+      - key: DET_MODEL_SHA256
+        sync: false
+      - key: REC_MODEL_SHA256
+        sync: false
+      - key: SWAP_MODEL_SHA256
+        sync: false
+      - key: DET_MODEL_URL
+        sync: false
+      - key: REC_MODEL_URL
+        sync: false
+      - key: SWAP_MODEL_URL
+        sync: false
+      - key: PROCESSING_TIMEOUT_SECONDS
+        value: "600"
+      - key: LOG_LEVEL
+        value: INFO
